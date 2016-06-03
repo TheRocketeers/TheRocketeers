@@ -1,0 +1,300 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Getting comfy with Jekyll &#8211; The Heart's Rocketeers</title>
+<meta name="description" content="I don’t intend this to be a “how to” style post. If you’re unfamiliar with Jekyll and Git then you’d better leave this post alone. Try reading some of my other posts instead.
+
+">
+<meta name="keywords" content="">
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Getting comfy with Jekyll">
+<meta name="twitter:description" content="I don’t intend this to be a “how to” style post. If you’re unfamiliar with Jekyll and Git then you’d better leave this post alone. Try reading some of my other posts instead.
+
+">
+
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://therocketeers.github.io/images/site-logo.svg">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Getting comfy with Jekyll">
+<meta property="og:description" content="I don’t intend this to be a “how to” style post. If you’re unfamiliar with Jekyll and Git then you’d better leave this post alone. Try reading some of my other posts instead.
+
+">
+<meta property="og:url" content="https://therocketeers.github.io/blog/getting-comfy-with-jekyll/">
+<meta property="og:site_name" content="The Heart's Rocketeers">
+
+
+
+
+
+<link rel="canonical" href="https://therocketeers.github.io/blog/getting-comfy-with-jekyll/">
+<link href="https://therocketeers.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="The Heart's Rocketeers All Posts Feed">
+<link href="https://therocketeers.github.io/feed.blog.xml" type="application/atom+xml" rel="alternate" title="The Heart's Rocketeers Blog Feed">
+<link href="https://therocketeers.github.io/feed.music.xml" type="application/atom+xml" rel="alternate" title="The Heart's Rocketeers Music Feed">
+<link href="https://therocketeers.github.io/feed.stories.xml" type="application/atom+xml" rel="alternate" title="The Heart's Rocketeers Stories Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://therocketeers.github.io/assets/css/main.css">
+<!-- Webfonts -->
+<!-- <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic,700italic&subset=latin,greek-ext' rel='stylesheet' type='text/css'> -->
+<link href='//fonts.googleapis.com/css?family=Philosopher:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+  <script src="https://therocketeers.github.io/assets/js/vendor/html5shiv.min.js"></script>
+  <script src="https://therocketeers.github.io/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="https://therocketeers.github.io/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="https://therocketeers.github.io/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="https://therocketeers.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="https://therocketeers.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://therocketeers.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://therocketeers.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://therocketeers.github.io/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+<!-- Hyphenation -->
+<script src="https://therocketeers.github.io/assets/js/hyphenate.js" type="text/javascript"></script>
+<div data-include="2f7f621a-503d-4333-e7fd-ef32b34ea152"></div>
+</head>
+<div class="next-prev">
+
+<div class="prev-post no-print"> <a href="https://therocketeers.github.io/blog/using-travis-ci-to-deploy-jekyll-on-netlify/"  title="Using Travis CI to automatically deploy Jekyll on Netlify" rel="prev">Previous Post</a></div>
+
+
+<div class="next-post no-print"> <a href="https://therocketeers.github.io/hello-george/"  title="Hello George" rel="next">Next Post</a></div>
+
+</div>
+
+<body id="post">
+
+<div class="navigation-wrapper no-print">
+	<nav role="navigation" id="site-nav" class="animated drop">
+	    <ul>
+      
+		    
+		    <li><a href="https://therocketeers.github.io/" >Main</a></li>
+		  
+		    
+		    <li><a href="https://therocketeers.github.io/about/" >About</a></li>
+		  
+		    
+		    <li><a href="https://therocketeers.github.io/blog/" >Blog</a></li>
+		  
+		    
+		    <li><a href="https://therocketeers.github.io/math/" >Math</a></li>
+		  
+		    
+		    <li><a href="https://therocketeers.github.io/stories/" >Stories</a></li>
+		  
+		    
+		    <li><a href="https://therocketeers.github.io/tags/" >Tags</a></li>
+		  
+		    
+		    <li><a href="https://therocketeers.github.io/links/" >Links</a></li>
+		  
+		    
+		    <li><a href="https://therocketeers.github.io/search/" >Search</a></li>
+		  
+          <li><a href="https://therocketeers.github.io/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss"></i> Feed</a></li>
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<header class="masthead">
+	<div class="wrap">
+      
+  		<a href="https://therocketeers.github.io/" class="site-logo" rel="home" title="The Heart's Rocketeers"><img src="https://therocketeers.github.io/images/site-logo.svg" width="200" height="200" alt="The Heart's Rocketeers logo" class="animated fadeInDown"></a>
+      
+      <h1 class="site-title animated fadeIn"><a href="https://therocketeers.github.io/">The Heart's Rocketeers</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">(I Think It's Going To Be A Long Long Time)</h2>
+	</div>
+</header><!-- /.masthead-->
+
+<div class="js-menu-screen menu-screen"></div>
+
+<div id="main" role="main">
+  <article class="hentry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags"><i class="fa fa-tags"></i></span>
+        
+          <h1 class="entry-title">Getting comfy with Jekyll</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        
+        
+          <img src="https://therocketeers.github.io/images/site-logo.png" class="bio-photo" alt="James Powell bio photo"></a>
+        
+        <span class="author vcard">By <span class="fn">James Powell</span></span>
+        <span class="entry-date date published" title="Published on Sun, 10 Apr 2016 14:02:58 +0200"><time datetime="2016-04-10T14:02:58+02:00"><i class="fa fa-calendar-o"></i>&nbsp;&nbsp;April 10, 2016</time></span>
+        
+        
+        <span class="entry-readingtime" title="351 words"><i class="fa fa-clock-o"> </i>&nbsp;&nbsp;2 min. reading </span>
+        <span class="no-print" style="float: right; padding-right: 0px">
+	<span><a class="social-share" href="https://www.facebook.com/sharer/sharer.php?u=https://therocketeers.github.io/blog/getting-comfy-with-jekyll/" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fa fa-facebook" aria-hidden="true"></i></a></span>
+	<span style="padding-left: 5px;"><a class="social-share" href="https://twitter.com/intent/tweet?hashtags=&amp;text=Getting%20comfy%20with%20Jekyll&amp;url=https://therocketeers.github.io/blog/getting-comfy-with-jekyll/&amp;via=" title="Share on Twitter" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter" aria-hidden="true"></i></a></span>	
+	<span style="padding-left: 5px;"><a class="social-share" href="https://plus.google.com/share?url=https://therocketeers.github.io/blog/getting-comfy-with-jekyll/" title="Share on Google+" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><i class="fa fa-google-plus" aria-hidden="true"></i></a></span>
+</span>
+      </footer>
+      <div class="entry-content hyphenate">
+        <p>I don’t intend this to be a “how to” style post. If you’re unfamiliar with Jekyll and Git then you’d better leave this post alone. Try reading some of my <a href="https://therocketeers.cr.rs/tags/">other posts</a> instead.</p>
+
+<p>Jekyll can be a bitch if you’re new to static blogging. For starters, Jekyll does not have a shiny content editor like Wordpress or Ghost. And to be honest that’s the way I like her. But the frustrating thing about making a blog with Jekyll is the way I have to host it. Right now this blog is hosted with <a href="https://www.netlify.com">Netlify</a> and the source code is on Github. After manually adding each post I trigger <a href="https://travis-ci.org">Travis CI</a> with a push to github. Travis builds and then deploys the generated code to Netlify using their api. This problem mainly stems from the fact that Netlify is a CDN (Content Delivery Network) and can only work with static files. That means no server side scripts for me.</p>
+
+<p>To get around this problem you need a minimal content editor – a place where you bring together all your different tools in one place so that they can all interact. Right now the tools I use are Github, Netlify, Travis-CI and <a href="https://heroku.com">Heroku</a> along with <a href="https://draftin.com">Draft</a> – a version controlled, online text editor for writers. That’s a long list and I wish I could narrow it down to a few basic tools. Barring that my only other choice was to create an app that would bring all these different tools together to create an optimized work flow.</p>
+
+<p>The script I wrote for this purpose gradually grew and became almost 500 lines of nodejs code. I call it Burlesque, because its complicated and messy. The first and major function for Burlesque was to act as a comment server. The other functions grew from this. Right now Burlesque has the ability to block spammers and to act as a Gravatar proxy server. Besides this Burlesque also has a webhook for publishing directly from Draft.</p>
+
+<p>Each of these features requires a lot of explanation. You can find each of these below.</p>
+
+
+      
+
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+  </article>
+  <p id="back-top"><a href="#post"><i class="fa fa-angle-double-up no-print"></i></a></p>
+</div><!-- /#main -->
+
+
+<div class="footer-wrapper">
+  <footer role="contentinfo" class="entry-wrapper">
+    <span>&copy; 2016-2016 James Powell.<br/>Last update on Fri, 03 Jun 2016 19:12:52 +0200<br/>Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> and theme from <a href="http://themicronaut.github.io" rel="nofollow">Aleh &amp; the Micronaut</a>.<br> Logo credit goes to Freepik.<br> Thanks to <a href="https://netlify.com" rel="nofollow">Netlify</a> for hosting this site.</span>
+<div class="social-icons">
+	
+	
+	
+	
+	
+	<a href="https://instagram.com/" title="James Powell on Instagram" target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+	
+	<a href="https://github.com/TheRocketeers" title="James Powell on Github" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+	
+    
+	
+	
+	
+	
+  <a href="https://therocketeers.github.io/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
+</div><!-- /.social-icons -->
+<span><p class="footer-wrapper"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/images/licensebuttons-by-nc-sa.svg" /></a><br/>
+    Except where otherwise noted, content on this site is licensed under a<br/><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons International License</a></p></span>
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script type="text/javascript">
+  var BASE_URL = 'https://therocketeers.github.io';
+  var PAGE_URL = '/blog/getting-comfy-with-jekyll/';
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://therocketeers.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="https://therocketeers.github.io/assets/js/scripts.min.js"></script>
+
+
+<!-- Scroll effect for invisible & lazy elements -->
+<script type="text/javascript">
+$(document).ready(function() {
+
+	/* Hide the 'back-top' element */
+	$("#back-top").hide();
+    
+    /* Every time the window is scrolled ... */
+    $(window).scroll( function() {
+        
+		/* Check the location of each 'invisible' element */
+        $('.invisible').each( function(i) {
+            
+            /*var bottom_of_object = $(this).offset().top + $(this).outerHeight();*/
+			var middle_of_object = $(this).offset().top + ($(this).outerHeight()  * 0.5);
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            
+            /* If the object is half visible in the window... */
+            if( bottom_of_window > middle_of_object ) { 
+				/* 1. load any lazy sources inside the object */
+				var $iframe=$(this).find('iframe');
+				if ($iframe.data('src')) { // only do it once per iframe
+					$iframe.prop('src', $iframe.data('src')).data('src', false);
+				}
+				var $img=$(this).find('img').each(function (index, element) { // do it for each nested image
+					if ($(this).data('src')) { // only do it once per image
+						$(this).prop('src', $(this).data('src')).data('src', false);
+					}
+				});
+				/* 2. fade-in the object */
+                $(this).animate({'opacity':'1'}, 500);
+            }
+            
+        });
+		
+		/* Show or hide the back-top element */
+		if ($(this).scrollTop() > 500) {
+			$('#back-top').fadeIn(100);
+		} else {
+			$('#back-top').fadeOut(100);
+		}		
+
+    });
+	
+	/* Scroll to top */
+	$(function () {
+		/* scroll body to 0px on click */
+		$('#back-top a').click(function () {
+			$('body,html').animate({
+				scrollTop: 0
+			}, 400);
+			return false;
+		});
+	});	
+    
+});
+</script>
+<!-- Toggle Comments -->
+<script type="text/javascript">
+$( "#comments" ).click(function() {
+  $( "#comments-wrap" ).slideToggle( "slow", function() {
+    // Animation complete.
+  });
+});
+</script>
+
+
+
+</body>
+</html>

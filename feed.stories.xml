@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title> - Stories</title>
+		<description>Posts categorized as 'stories'</description>
+		<link>https://therocketeers.github.io</link>
+		<atom:link href="https://therocketeers.github.io/feed.music.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Chap.2 - Where to?</title>
+				
+					<description>&lt;p&gt;&lt;span class=&quot;dcap&quot;&gt;“T&lt;/span&gt;he worlds gotten smaller,” the old man complained, barely able to sit up. Wheezes and coughs. “What happened to all the people?”&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Thu, 25 Feb 2016 12:20:28 +0100</pubDate>
+				<link>https://therocketeers.github.io/stories/rosin-pt-2/</link>
+				<guid isPermaLink="true">https://therocketeers.github.io/stories/rosin-pt-2/</guid>
+			</item>
+		
+			<item>
+				<title>Chap.1 - The Plague in Valkaerd</title>
+				
+					<description>&lt;p&gt;&lt;span class=&quot;dcap&quot;&gt;I&lt;/span&gt;n the first year, nobody took notice. Seven people died that year. Each unknown to everyone else. Seven dead bodies amidst a dozen others. What was there to know? Summer hills killed a thousand each year. It was that kind of city. They were found floating in the canals, face down in their beds and mostly just laying by the way side. Yes, Summerhills could do that to you. A city has little pity being made up of people who have too much of that. Why that’s so I don’t know. Anyway, they were found dead. Seven dead men. No one thought much of it although the under taker would have told you there were blisters all over their skin. It starts as an itching. Then it puffs up and blisters. You wake up one night and find out your sheets covered in blood like there’d been murder done and hid. The fever starts in two days. You turn over in your sleep starts mumbling. Then the chills set in and you shake all the more.  It starts down inside of you and quickly builds up until the kings own fire cannot keep you warm. Death comes knocking in the morning. The undertaker follows.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Mon, 22 Feb 2016 12:49:47 +0100</pubDate>
+				<link>https://therocketeers.github.io/stories/rosin-pt-1/</link>
+				<guid isPermaLink="true">https://therocketeers.github.io/stories/rosin-pt-1/</guid>
+			</item>
+		
+	</channel>
+</rss>

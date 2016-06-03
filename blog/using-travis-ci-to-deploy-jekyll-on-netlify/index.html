@@ -1,0 +1,691 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Using Travis CI to automatically deploy Jekyll on Netlify &#8211; The Heart's Rocketeers</title>
+<meta name="description" content="Setting up a Travis CI continuous workflow to automatically deploy my website on Netlify each time I push to Github.">
+<meta name="keywords" content="Travis CI, Continuous Integration, Netlify Static Hosting, Jekyll">
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Using Travis CI to automatically deploy Jekyll on Netlify">
+<meta name="twitter:description" content="Setting up a Travis CI continuous workflow to automatically deploy my website on Netlify each time I push to Github.">
+
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://therocketeers.github.io/images/site-logo.svg">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Using Travis CI to automatically deploy Jekyll on Netlify">
+<meta property="og:description" content="Setting up a Travis CI continuous workflow to automatically deploy my website on Netlify each time I push to Github.">
+<meta property="og:url" content="https://therocketeers.github.io/blog/using-travis-ci-to-deploy-jekyll-on-netlify/">
+<meta property="og:site_name" content="The Heart's Rocketeers">
+
+
+
+
+
+<link rel="canonical" href="https://therocketeers.github.io/blog/using-travis-ci-to-deploy-jekyll-on-netlify/">
+<link href="https://therocketeers.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="The Heart's Rocketeers All Posts Feed">
+<link href="https://therocketeers.github.io/feed.blog.xml" type="application/atom+xml" rel="alternate" title="The Heart's Rocketeers Blog Feed">
+<link href="https://therocketeers.github.io/feed.music.xml" type="application/atom+xml" rel="alternate" title="The Heart's Rocketeers Music Feed">
+<link href="https://therocketeers.github.io/feed.stories.xml" type="application/atom+xml" rel="alternate" title="The Heart's Rocketeers Stories Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://therocketeers.github.io/assets/css/main.css">
+<!-- Webfonts -->
+<!-- <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic,700italic&subset=latin,greek-ext' rel='stylesheet' type='text/css'> -->
+<link href='//fonts.googleapis.com/css?family=Philosopher:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+  <script src="https://therocketeers.github.io/assets/js/vendor/html5shiv.min.js"></script>
+  <script src="https://therocketeers.github.io/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="https://therocketeers.github.io/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="https://therocketeers.github.io/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="https://therocketeers.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="https://therocketeers.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://therocketeers.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://therocketeers.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://therocketeers.github.io/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+<!-- Hyphenation -->
+<script src="https://therocketeers.github.io/assets/js/hyphenate.js" type="text/javascript"></script>
+<div data-include="2f7f621a-503d-4333-e7fd-ef32b34ea152"></div>
+</head>
+<div class="next-prev">
+
+<div class="prev-post no-print"> <a href="https://therocketeers.github.io/blog/philosophy-of-the-web/"  title="Writing for the Web: Basic Philosophies" rel="prev">Previous Post</a></div>
+
+
+<div class="next-post no-print"> <a href="https://therocketeers.github.io/blog/getting-comfy-with-jekyll/"  title="Getting comfy with Jekyll" rel="next">Next Post</a></div>
+
+</div>
+
+<body id="post">
+
+<div class="navigation-wrapper no-print">
+	<nav role="navigation" id="site-nav" class="animated drop">
+	    <ul>
+      
+		    
+		    <li><a href="https://therocketeers.github.io/" >Main</a></li>
+		  
+		    
+		    <li><a href="https://therocketeers.github.io/about/" >About</a></li>
+		  
+		    
+		    <li><a href="https://therocketeers.github.io/blog/" >Blog</a></li>
+		  
+		    
+		    <li><a href="https://therocketeers.github.io/math/" >Math</a></li>
+		  
+		    
+		    <li><a href="https://therocketeers.github.io/stories/" >Stories</a></li>
+		  
+		    
+		    <li><a href="https://therocketeers.github.io/tags/" >Tags</a></li>
+		  
+		    
+		    <li><a href="https://therocketeers.github.io/links/" >Links</a></li>
+		  
+		    
+		    <li><a href="https://therocketeers.github.io/search/" >Search</a></li>
+		  
+          <li><a href="https://therocketeers.github.io/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss"></i> Feed</a></li>
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<header class="masthead">
+	<div class="wrap">
+      
+  		<a href="https://therocketeers.github.io/" class="site-logo" rel="home" title="The Heart's Rocketeers"><img src="https://therocketeers.github.io/images/site-logo.svg" width="200" height="200" alt="The Heart's Rocketeers logo" class="animated fadeInDown"></a>
+      
+      <h1 class="site-title animated fadeIn"><a href="https://therocketeers.github.io/">The Heart's Rocketeers</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">(I Think It's Going To Be A Long Long Time)</h2>
+	</div>
+</header><!-- /.masthead-->
+
+<div class="js-menu-screen menu-screen"></div>
+
+<div id="main" role="main">
+  <article class="hentry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags"><i class="fa fa-tags"></i><a href="https://therocketeers.github.io/tags/#Travis CI" title="Pages tagged Travis CI">Travis CI</a>&bull;<a href="https://therocketeers.github.io/tags/#Continuous Integration" title="Pages tagged Continuous Integration">Continuous Integration</a>&bull;<a href="https://therocketeers.github.io/tags/#Netlify Static Hosting" title="Pages tagged Netlify Static Hosting">Netlify Static Hosting</a>&bull;<a href="https://therocketeers.github.io/tags/#Jekyll" title="Pages tagged Jekyll">Jekyll</a></span>
+        
+          <h1 class="entry-title">Using Travis CI to automatically deploy Jekyll on Netlify</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        
+        
+          <img src="https://therocketeers.github.io/images/site-logo.png" class="bio-photo" alt="James Powell bio photo"></a>
+        
+        <span class="author vcard">By <span class="fn">James Powell</span></span>
+        <span class="entry-date date published" title="Published on Sun, 06 Mar 2016 16:35:57 +0100"><time datetime="2016-03-06T16:35:57+01:00"><i class="fa fa-calendar-o"></i>&nbsp;&nbsp;March 06, 2016</time></span>
+        
+        
+        <span class="entry-readingtime" title="1085 words"><i class="fa fa-clock-o"> </i>&nbsp;&nbsp;7 min. reading </span>
+        <span class="no-print" style="float: right; padding-right: 0px">
+	<span><a class="social-share" href="https://www.facebook.com/sharer/sharer.php?u=https://therocketeers.github.io/blog/using-travis-ci-to-deploy-jekyll-on-netlify/" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fa fa-facebook" aria-hidden="true"></i></a></span>
+	<span style="padding-left: 5px;"><a class="social-share" href="https://twitter.com/intent/tweet?hashtags=TravisCI,ContinuousIntegration,NetlifyStaticHosting,Jekyll&amp;text=Using%20Travis%20CI%20to%20automatically%20deploy%20Jekyll%20on%20Netlify&amp;url=https://therocketeers.github.io/blog/using-travis-ci-to-deploy-jekyll-on-netlify/&amp;via=" title="Share on Twitter" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter" aria-hidden="true"></i></a></span>	
+	<span style="padding-left: 5px;"><a class="social-share" href="https://plus.google.com/share?url=https://therocketeers.github.io/blog/using-travis-ci-to-deploy-jekyll-on-netlify/" title="Share on Google+" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><i class="fa fa-google-plus" aria-hidden="true"></i></a></span>
+</span>
+      </footer>
+      <div class="entry-content hyphenate">
+        <p>I recently moved my website from Github pages to Netlify. The reason I did this was because Netlify provides free static hosting through a worldwide CDN or in other words through a content delivery network. As a result my website is now blazingly fast anywhere around the world. Netlify CDN automatically optimizes my website resources so that they can be downloaded faster. Netlify is also convenient as it supports continuous integration which meant each time I made some modification and pushed to Github my site is automatically regenerated and deployed. Moving to Netlify also meant that I could use an SSL certificate with my custom domain for free. How cool is that?</p>
+
+<p>The reason I write this post is that soon after I moved to Netlify I noticed that there was a build counter on their console that recorded how many times my site had been deployed and this build counter was red and perilously close to the 50 build mark. A bit of nosing around made me realize that Netlify only supports 50 automatic deployments from Github a month. But manual deployments were still free. I could drag and drop my website to upload but that was about it.</p>
+
+<p>To rectify this major inconvenience I searched around for ways to make this process as painless as possible. I finally stumbled on Travis CI. Travis CI is a continuous integration platform for developers to test their code on and was free for open source projects. But I found out that many people were using Travis CI for deploying jekyll to a variety of places. Travis CI is simple to use but the learning curve was a bit steep. I found the process very irksome since there was scarcely any resources where I could find help outside of the documentation. So I decided to write a how to style post on manually deploying to Netlify using their REST api.</p>
+
+<h4 id="step-1">Step 1</h4>
+
+<p>There are some files to added and scripts to be tweaked. In the root of your repositorysitory create a <code class="highlighter-rouge">.travis.yml</code> file. This is how you let Travis know what you want to do. Leave it empty for the moment. Create a two new bash files: <code class="highlighter-rouge">build.sh</code> and <code class="highlighter-rouge">deploy.sh</code> in a folder named <code class="highlighter-rouge">scripts</code> in the root folder of your repository. Make sure you have your <code class="highlighter-rouge">Gemfile</code> setup. Edit the <code class="highlighter-rouge">Gemfile</code> to include two new lines, <code class="highlighter-rouge">gem 'jekyll'</code> and <code class="highlighter-rouge">gem 'rake'</code>. Then make a file named <code class="highlighter-rouge">Rakefile</code> in your root folder and add the following code to it.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>task default: [:test]
+
+task :test do
+  ruby "tests.rb"
+end
+</code></pre>
+</div>
+
+<p>Now edit the <code class="highlighter-rouge">build.sh</code> file to add the following.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
+<span class="nb">set</span> -e <span class="c"># halt script on error</span>
+
+jekyll build
+</code></pre>
+</div>
+
+<p>Then edit the <code class="highlighter-rouge">deploy.sh</code> file to include this code.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
+<span class="nb">set</span> -e <span class="c"># halt script on error</span>
+
+zip -r website.zip _site
+
+curl -H <span class="s2">"Content-Type: application/zip"</span> <span class="se">\</span>
+     -H <span class="s2">"Authorization: Bearer </span><span class="nv">$NETLIFYKEY</span><span class="s2">"</span> <span class="se">\</span>
+     --data-binary <span class="s2">"@website.zip"</span> <span class="se">\</span>
+     https://api.netlify.com/api/v1/sites/&lt;Your site domain name&gt;/deploys
+</code></pre>
+</div>
+
+<h4 id="editing-the-travisyml-file">Editing the .travis.yml file</h4>
+
+<p>Open up the <code class="highlighter-rouge">.travis.yml</code> file you created earlier and add the following code.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>language: ruby
+rvm:
+- 2.1
+
+# install jekyll from gemfile
+install: 
+   - bundle install
+   - rake
+   - chmod +x ./scripts/build.sh
+   - ./scripts/build.sh
+
+# build site
+scripts: true
+
+# deploy to netlify
+after_success: 
+   - chmod +x ./scripts/deploy.sh
+   - ./scripts/deploy.sh
+
+# branch whitelist, only for GitHub Pages
+branches:
+  only:
+  - master
+</code></pre>
+</div>
+
+<p>Now create a file named <code class="highlighter-rouge">tests.rb</code> in the root of your repository with the following code.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>puts "Captain! I'm fine!"
+</code></pre>
+</div>
+
+<h4 id="step-2">Step 2</h4>
+
+<p>Make a new <a href="https://travis-ci.org">Travis CI</a> and connect it to your Github account. Follow the instructions to activate your repository and push to Github for your first build. The build will fail, don’t worry. In your Travis CI dashboard you can find the More Options button to your right. The settings for your repository will be there. In your settings page you have the option to add new environment variables. Setting up an environment variable enable you to access that variable in your bash script. Before you create an environmental variable you must create a Netlify personal access token for yourself. You can get the personal access token from <a href="https://app.netlify.com/applications">here</a>. Make sure to keep it safe. !!!Not in your repository!!!</p>
+
+<p>Create a new environment variable called <code class="highlighter-rouge">NETLIFYKEY</code> and set it to the value of the personal access token.</p>
+
+<p>Make some new changes to your site and push to Github and see the magic happen.</p>
+
+<h4 id="explanation">Explanation</h4>
+
+<p>Travis essentially gives us a command line so that we can work with it. The <code class="highlighter-rouge">.travis.yml</code> file is used to indicate which scripts have to be run. First <code class="highlighter-rouge">bundle install</code> is run so that we have all our dependencies install. The rakefile is just there because Travis runs <code class="highlighter-rouge">bundle exec rake</code> automatically and we’d get an error if we didn’t have some thing in it. Each shell script we run must be made executable with the <code class="highlighter-rouge">chmod +x</code> command. Then the <code class="highlighter-rouge">./</code> command runs the shell script. The first script <code class="highlighter-rouge">build.sh</code> runs the command <code class="highlighter-rouge">jekyll build</code> to generate your site into a folder called <code class="highlighter-rouge">_site</code>. The second script is run only if we have a successful build. <code class="highlighter-rouge">deploy.sh</code> first takes the content of the folder <code class="highlighter-rouge">_site</code> and then compresses it to make a zipped file <code class="highlighter-rouge">website.zip</code>. Then we use cURL to take this file and deploy it to Netlify using their REST API.</p>
+
+<h4 id="security-concerns">Security Concerns</h4>
+
+<p><strong>Update fixed this</strong></p>
+
+<p>Frankly, I think you shouldn’t use the <code class="highlighter-rouge">deploy.sh</code> script if you’re hosting your source code on a public Github repositorysitory. As you can see, you have a personal access token in that file and anyone can read it since it’s on a public repository. I am currently trying to work around this problem by using gpg encryption. I’ll post updates as I go along. I you have an idea that’ll help me email me at jamespowell.auth@gmail.com</p>
+
+<h5 id="update">!Update!</h5>
+
+<p>I solved the security problem caused by keeping the key on your public repository by using environment variables. If you included the personal access token in your <code class="highlighter-rouge">deploy.sh</code> file make sure to change it to the above. !!!And make sure that you permanently delete any previous commits that includes this change from your repository.!!!</p>
+
+
+      
+        
+<script src="//crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/sha256.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript">	
+	function randomGen () {
+		var stng = "";
+		var alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
+		while (stng.length < 2048) {
+			stng += alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+		}
+		return stng;
+	}
+	function workHard(form) {
+		var unhash = randomGen();
+		var hash = CryptoJS.SHA256(unhash);
+		form.glib.value = unhash;
+		form.glibhash.value = hash;
+	}
+	$(document).ready(function(){
+		var comment_no = 0;
+		$('.gravatar').each(function(i, img) {
+			
+			var email = img.alt;
+		    var base_url = "https://whispering-everglades-91567.herokuapp.com/?g=";
+		    var end_url = "";
+		    var url = base_url + email + end_url;
+		    img.src = url;
+
+		    comment_no = i + 1;
+
+		});
+
+		$('.counter').html(comment_no);
+	});
+	function hideAway() {
+		document.getElementById('throw-error').style.display="none";
+	}
+  function validatePooleForm(form) {
+  	var name=form.name.value;
+  	var comment=form.comment.value;
+  	if (name != '' && comment != '') {
+  		workHard(form);
+  		return true;
+  	}
+  	else {
+  		document.getElementById('throw-error').style.display= "block";
+  		$('html, body').animate({ scrollTop: $('#throw-error').offset().top }, 'slow');
+  		return false;
+  	}
+  }
+  function honeyPot(form) {
+    form.path.value = "/blog/using-travis-ci-to-deploy-jekyll-on-netlify/";
+    var email=form.email.value;
+    var honey_handle = form.honey.value;
+    if (honey_handle == null || honey_handle == '') {
+    	if (validatePooleForm(form)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    else {
+    	alert('Caught ye sucker!');
+    	return false;
+    }
+
+  }
+  function focusOnMe(id) {
+  	document.getElementById("laform").name.focus();
+  	document.getElementById("laform").inreplyto.value = id;
+  	document.getElementById("reply").style.display = "inline";
+  }
+  function unfocusOnMe(id) {
+  	document.getElementById("laform").inreplyto.value = "";
+  	document.getElementById("reply").style.display = "none";
+  }
+</script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/pure/0.6.0/pure-min.css">
+<style type="text/css">
+	#hide {
+		display: none;
+	}
+	#reply {
+		display: none;
+		float: right;
+		color: #dd0000;
+		font-size: 0.5em;
+		font-family: sans-serif;
+	}
+	#throw-error {
+		display: none;
+		background: #FF8282;
+		border-style: solid;
+		border-width: 1px;
+		border-color: #FCB8B8;
+		padding:20px;
+		border-radius: 3px;
+		font-family: sans-serif;
+		font-weight: normal;
+		font-size: 1em;
+	}
+	.bold-style {
+		border-radius: 0 !important;
+		border-width: 1px !important;
+		padding: 20px !important;
+		border-color: #ddd !important;
+		background-color: #fafafa !important;
+		box-shadow: none !important;
+	}
+	.bold-style:focus {
+		border-color: #ddd !important;
+	}
+	.input-area {
+		height: 200px;
+	}
+	.poole label {
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-weight: 900;
+		font-size: 0.8em;
+	}
+
+	.button {
+		padding-top: 15px;
+		padding-bottom: 15px;
+		padding-left: 20px;
+		padding-right: 20px;
+		margin-top: 5px;
+		color: #fff;
+		background-color: #111;
+		border-radius: 3px;
+		box-shadow: none;
+		text-transform: uppercase;
+		font-weight: 900;
+	}
+	.poole legend {
+		font-weight: 900;
+		font-size: 2em;
+	}
+	.poole-comments li {
+		list-style-type: none;
+		display: block;
+		border-top-width: 1px;
+		border-top-style: solid;
+		border-top-color: #d5d5d5;
+		margin-top: 10px;
+		padding-top: 10px;
+		margin-bottom: 10px; 
+
+	}
+	.poole-comments div {
+		font-size: 1.1em;
+		padding: 10px;
+		margin-left: 10px;
+	}
+	.poole-comments p {
+		display: inline-block;
+		font-size: 0.54em;
+		color: #555;
+		font-family: sans-serif;
+		text-transform: uppercase;
+		font-weight: 700;
+		padding: 0;
+		margin-left: 10px;
+		margin-top: 0;
+	}
+	.poole-comments time {
+		display: inline-block;
+		font-size: 0.5em;
+		color: #666;
+		text-transform: uppercase;
+		font-family: sans-serif;
+	}
+	.gravatar {
+		display: inline-block;
+		vertical-align: top;
+		width: 40px;
+		height: auto;
+		border-radius: 3px;
+		border-style: solid;
+		border-width: 1px;
+		border-color: #444;
+	}
+	.poole-comments a {
+		display: inline-block;
+		margin-left: 15px;
+		font-size: 0.5em;
+		font-family: sans-serif;
+	}
+	.poole-comments a:hover {
+		text-decoration: underline;
+	}
+	.poole-comments > ul {
+		margin: 0;
+	}
+	.poole-comments {
+		margin-top: 40px;
+	}
+	.top-wrapper, .bottom-wrapper {
+		display: block;
+	}
+</style>
+
+<div id="throw-error" onclick="hideAway()">
+You must provide a name for your comment!        <i style="float:right;" class="fa fa-times"></i>
+</div>
+<form class="pure-form pure-form-stacked poole" action="https://whispering-everglades-91567.herokuapp.com/post_comment" method="post" name="pooleform" onsubmit="return honeyPot(this)" id="laform">		
+	<fieldset>
+		<legend>Leave a comment <a class="display: inline-block;" id="reply" onclick="unfocusOnMe()">Clear reply <i style="color:#111;" class="fa fa-times"></i></a></legend>
+
+			<input type="hidden" name="redirect_to" value="https://therocketeers.github.io/comment/">
+
+			<div class="pure-g">
+
+				<div class="pure-u-1-2">
+		  		<label>Name</label>
+		  		<input type="text" name="name" class="pure-u-22-24 bold-style" > 
+		  	</div>
+
+		  	<div class="pure-u-1-2">
+		  		<label>Email</label>
+		  		<input type="text" name="email" class="pure-u-1 bold-style" >
+		  	</div>
+
+		  	<div class="pure-u-1">
+		  		<label>Website</label>
+		  		<input type="text" name="website" class="pure-u-1 bold-style">
+		  	</div>
+
+		  	<div class="pure-u-1">
+		  		<label>Comment</label>
+		  		<textarea class="pure-input-1 bold-style input-area" name="comment"></textarea>
+		  	</div>
+
+	  		<input type="text" name="path" id="hide">
+	  		<input type="text" name="inreplyto" id="hide">
+	  		<input type="text" name="honey" id="hide">
+	  		<input type="text" name="email0" id="hide">
+	  		<input type="text" name="glibhash" id="hide">
+	  		<input type="text" name="glib" id="hide">
+
+
+	  		<input type="submit" value="Post Comment" class="pure-button button">
+
+	  	</div>
+  </fieldset>
+</form>
+
+
+
+<div class="poole-comments">
+<h3><span class="counter">0</span> Comments</h3>
+<ul>
+  
+    <li>
+
+      <div class="top-wrapper">
+
+	      <img class="gravatar" alt="b0151caf090b8e37ee1adaa55c6fa6e5837c0eda9479b2d598c68abdc363c483" scr="http">
+	      <p class="poole-name">Jen</p>
+
+      </div>
+
+      <div class="poole-comment">
+        This is so awesome
+      </div>
+
+      <div class="bottom-wrapper">
+
+	      <time datetime="2016-04-12T09:17:14+02:00">
+	        <i style="color: #333;padding: 5px;" class="fa fa-calendar"></i>12 April 2016
+	      </time>
+	      <a onclick="focusOnMe('0e5da6ca52704d714b2ba8799b6ae801444ace361e09e19e64e23fa2cd440a6a')">Reply</a>
+
+      </div>
+
+      <ul>
+      	
+      		
+	      	<li>
+
+	      		<div class="top-wrapper">
+		      		<img class="gravatar" alt="" scr="htttp">
+	      			<p class="poole-name">Amy</p>
+	      		</div>
+
+			    <div>
+			    	I know. &lt;script language = "javascript"&gt;alert("high stakes");</script>
+			    </div>
+			      
+			    <div class="bottom-wrapper">
+
+			      <time datetime="2016-04-12T09:17:14+02:00">
+			        <i style="color: #333;padding: 5px;" class="fa fa-calendar"></i>12 April 2016
+			      </time>
+
+      			</div>
+
+      		</li>
+      	
+      </ul>
+
+    </li>
+  
+</ul>
+</div>
+      
+
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+  </article>
+  <p id="back-top"><a href="#post"><i class="fa fa-angle-double-up no-print"></i></a></p>
+</div><!-- /#main -->
+
+
+<div class="footer-wrapper">
+  <footer role="contentinfo" class="entry-wrapper">
+    <span>&copy; 2016-2016 James Powell.<br/>Last update on Fri, 03 Jun 2016 19:12:52 +0200<br/>Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> and theme from <a href="http://themicronaut.github.io" rel="nofollow">Aleh &amp; the Micronaut</a>.<br> Logo credit goes to Freepik.<br> Thanks to <a href="https://netlify.com" rel="nofollow">Netlify</a> for hosting this site.</span>
+<div class="social-icons">
+	
+	
+	
+	
+	
+	<a href="https://instagram.com/" title="James Powell on Instagram" target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+	
+	<a href="https://github.com/TheRocketeers" title="James Powell on Github" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+	
+    
+	
+	
+	
+	
+  <a href="https://therocketeers.github.io/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
+</div><!-- /.social-icons -->
+<span><p class="footer-wrapper"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/images/licensebuttons-by-nc-sa.svg" /></a><br/>
+    Except where otherwise noted, content on this site is licensed under a<br/><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons International License</a></p></span>
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script type="text/javascript">
+  var BASE_URL = 'https://therocketeers.github.io';
+  var PAGE_URL = '/blog/using-travis-ci-to-deploy-jekyll-on-netlify/';
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://therocketeers.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="https://therocketeers.github.io/assets/js/scripts.min.js"></script>
+
+
+<!-- Scroll effect for invisible & lazy elements -->
+<script type="text/javascript">
+$(document).ready(function() {
+
+	/* Hide the 'back-top' element */
+	$("#back-top").hide();
+    
+    /* Every time the window is scrolled ... */
+    $(window).scroll( function() {
+        
+		/* Check the location of each 'invisible' element */
+        $('.invisible').each( function(i) {
+            
+            /*var bottom_of_object = $(this).offset().top + $(this).outerHeight();*/
+			var middle_of_object = $(this).offset().top + ($(this).outerHeight()  * 0.5);
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            
+            /* If the object is half visible in the window... */
+            if( bottom_of_window > middle_of_object ) { 
+				/* 1. load any lazy sources inside the object */
+				var $iframe=$(this).find('iframe');
+				if ($iframe.data('src')) { // only do it once per iframe
+					$iframe.prop('src', $iframe.data('src')).data('src', false);
+				}
+				var $img=$(this).find('img').each(function (index, element) { // do it for each nested image
+					if ($(this).data('src')) { // only do it once per image
+						$(this).prop('src', $(this).data('src')).data('src', false);
+					}
+				});
+				/* 2. fade-in the object */
+                $(this).animate({'opacity':'1'}, 500);
+            }
+            
+        });
+		
+		/* Show or hide the back-top element */
+		if ($(this).scrollTop() > 500) {
+			$('#back-top').fadeIn(100);
+		} else {
+			$('#back-top').fadeOut(100);
+		}		
+
+    });
+	
+	/* Scroll to top */
+	$(function () {
+		/* scroll body to 0px on click */
+		$('#back-top a').click(function () {
+			$('body,html').animate({
+				scrollTop: 0
+			}, 400);
+			return false;
+		});
+	});	
+    
+});
+</script>
+<!-- Toggle Comments -->
+<script type="text/javascript">
+$( "#comments" ).click(function() {
+  $( "#comments-wrap" ).slideToggle( "slow", function() {
+    // Animation complete.
+  });
+});
+</script>
+
+
+
+</body>
+</html>

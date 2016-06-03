@@ -1,0 +1,577 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>How big is your prime gap? &#8211; The Heart's Rocketeers</title>
+<meta name="description" content="Thoughts on the gap between prime gaps.">
+<meta name="keywords" content="prime numbers, prime gap, prime number theorem">
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="How big is your prime gap?">
+<meta name="twitter:description" content="Thoughts on the gap between prime gaps.">
+
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://therocketeers.github.io/images/site-logo.svg">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How big is your prime gap?">
+<meta property="og:description" content="Thoughts on the gap between prime gaps.">
+<meta property="og:url" content="https://therocketeers.github.io/math/prime-gap/">
+<meta property="og:site_name" content="The Heart's Rocketeers">
+
+
+
+
+
+<link rel="canonical" href="https://therocketeers.github.io/math/prime-gap/">
+<link href="https://therocketeers.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="The Heart's Rocketeers All Posts Feed">
+<link href="https://therocketeers.github.io/feed.blog.xml" type="application/atom+xml" rel="alternate" title="The Heart's Rocketeers Blog Feed">
+<link href="https://therocketeers.github.io/feed.music.xml" type="application/atom+xml" rel="alternate" title="The Heart's Rocketeers Music Feed">
+<link href="https://therocketeers.github.io/feed.stories.xml" type="application/atom+xml" rel="alternate" title="The Heart's Rocketeers Stories Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://therocketeers.github.io/assets/css/main.css">
+<!-- Webfonts -->
+<!-- <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic,700italic&subset=latin,greek-ext' rel='stylesheet' type='text/css'> -->
+<link href='//fonts.googleapis.com/css?family=Philosopher:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+  <script src="https://therocketeers.github.io/assets/js/vendor/html5shiv.min.js"></script>
+  <script src="https://therocketeers.github.io/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="https://therocketeers.github.io/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+    messageStyle: "none"
+  });
+</script>
+
+
+
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="https://therocketeers.github.io/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="https://therocketeers.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="https://therocketeers.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://therocketeers.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://therocketeers.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://therocketeers.github.io/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+<!-- Hyphenation -->
+<script src="https://therocketeers.github.io/assets/js/hyphenate.js" type="text/javascript"></script>
+<div data-include="2f7f621a-503d-4333-e7fd-ef32b34ea152"></div>
+</head>
+<div class="next-prev">
+
+<div class="prev-post no-print"> <a href="https://therocketeers.github.io/math/dedekind-peano-axioms/"  title="In the very begining - Dedekind-Peano Axioms" rel="prev">Previous Post</a></div>
+
+
+<div class="next-post no-print"> <a href="https://therocketeers.github.io/stories/rosin-pt-1/"  title="Chap.1 - The Plague in Valkaerd" rel="next">Next Post</a></div>
+
+</div>
+
+<body id="post">
+
+<div class="navigation-wrapper no-print">
+	<nav role="navigation" id="site-nav" class="animated drop">
+	    <ul>
+      
+		    
+		    <li><a href="https://therocketeers.github.io/" >Main</a></li>
+		  
+		    
+		    <li><a href="https://therocketeers.github.io/about/" >About</a></li>
+		  
+		    
+		    <li><a href="https://therocketeers.github.io/blog/" >Blog</a></li>
+		  
+		    
+		    <li><a href="https://therocketeers.github.io/math/" >Math</a></li>
+		  
+		    
+		    <li><a href="https://therocketeers.github.io/stories/" >Stories</a></li>
+		  
+		    
+		    <li><a href="https://therocketeers.github.io/tags/" >Tags</a></li>
+		  
+		    
+		    <li><a href="https://therocketeers.github.io/links/" >Links</a></li>
+		  
+		    
+		    <li><a href="https://therocketeers.github.io/search/" >Search</a></li>
+		  
+          <li><a href="https://therocketeers.github.io/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss"></i> Feed</a></li>
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<header class="masthead">
+	<div class="wrap">
+      
+  		<a href="https://therocketeers.github.io/" class="site-logo" rel="home" title="The Heart's Rocketeers"><img src="https://therocketeers.github.io/images/site-logo.svg" width="200" height="200" alt="The Heart's Rocketeers logo" class="animated fadeInDown"></a>
+      
+      <h1 class="site-title animated fadeIn"><a href="https://therocketeers.github.io/">The Heart's Rocketeers</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">(I Think It's Going To Be A Long Long Time)</h2>
+	</div>
+</header><!-- /.masthead-->
+
+<div class="js-menu-screen menu-screen"></div>
+
+<div id="main" role="main">
+  <article class="hentry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <span class="entry-tags"><i class="fa fa-tags"></i><a href="https://therocketeers.github.io/tags/#prime numbers" title="Pages tagged prime numbers">prime numbers</a>&bull;<a href="https://therocketeers.github.io/tags/#prime gap" title="Pages tagged prime gap">prime gap</a>&bull;<a href="https://therocketeers.github.io/tags/#prime number theorem" title="Pages tagged prime number theorem">prime number theorem</a></span>
+        
+          <h1 class="entry-title">How big is your prime gap?</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        
+        
+          <img src="https://therocketeers.github.io/images/site-logo.png" class="bio-photo" alt="James Powell bio photo"></a>
+        
+        <span class="author vcard">By <span class="fn">James Powell</span></span>
+        <span class="entry-date date published" title="Published on Mon, 22 Feb 2016 08:52:07 +0100"><time datetime="2016-02-22T08:52:07+01:00"><i class="fa fa-calendar-o"></i>&nbsp;&nbsp;February 22, 2016</time></span>
+        
+        
+        <span class="entry-readingtime" title="253 words"><i class="fa fa-clock-o"> </i>&nbsp;&nbsp;2 min. reading </span>
+        <span class="no-print" style="float: right; padding-right: 0px">
+	<span><a class="social-share" href="https://www.facebook.com/sharer/sharer.php?u=https://therocketeers.github.io/math/prime-gap/" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="fa fa-facebook" aria-hidden="true"></i></a></span>
+	<span style="padding-left: 5px;"><a class="social-share" href="https://twitter.com/intent/tweet?hashtags=primenumbers,primegap,primenumbertheorem&amp;text=How%20big%20is%20your%20prime%20gap?&amp;url=https://therocketeers.github.io/math/prime-gap/&amp;via=" title="Share on Twitter" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="fa fa-twitter" aria-hidden="true"></i></a></span>	
+	<span style="padding-left: 5px;"><a class="social-share" href="https://plus.google.com/share?url=https://therocketeers.github.io/math/prime-gap/" title="Share on Google+" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><i class="fa fa-google-plus" aria-hidden="true"></i></a></span>
+</span>
+      </footer>
+      <div class="entry-content hyphenate">
+        <p><span class="dcap">P</span>rime gaps are the difference between adjacent prime numbers. There is no function in n that can tell you what the $nth$ prime number is. But a lot can be infered from the properties of prime numbers. For example, all prime numbers except 2 are odd. Therefore the prime gaps must be even numbers. It was Euclid who provided this marvellous proof that there are an infinite number of prime numbers.</p>
+
+<blockquote>
+  <p>Suppose to the contrary that there are only a finite number of prime numbers.
+Therefore there must be a largest prime number, $p$. In that case $1 \times 2 \times 3 \cdots \times p + 1$ 
+is either a prime bigger than $p$ or is divisibe by a prime bigger than $p$. 
+In either case we have a contradiction. Ergo, reducto ad absurdum there is no greatest prime. 
+Which implies there are an infinite number of prime numbers.</p>
+</blockquote>
+
+<p>But what of the spacing between prime numbers? Is there two prime numbers that are separated by a space greater than a give integer? In effect we are asking whether there are a, say $k$, number of consecutive composite numbers. We see that $n!+2$, $n!+3$, …, $n!+n$ are $n-1$ consecutive composite numbers. So not only are there an infinite number of prime numbers, the gap between adjacent primes can be as large as necessary. That is, if you choose any integer $k$ then there are always two adjacent prime numbers that are separated by a gap larger than $k$.</p>
+
+<div class="text-divider"></div>
+
+
+
+      
+        
+<script src="//crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/sha256.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript">	
+	function randomGen () {
+		var stng = "";
+		var alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";
+		while (stng.length < 2048) {
+			stng += alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+		}
+		return stng;
+	}
+	function workHard(form) {
+		var unhash = randomGen();
+		var hash = CryptoJS.SHA256(unhash);
+		form.glib.value = unhash;
+		form.glibhash.value = hash;
+	}
+	$(document).ready(function(){
+		var comment_no = 0;
+		$('.gravatar').each(function(i, img) {
+			
+			var email = img.alt;
+		    var base_url = "https://whispering-everglades-91567.herokuapp.com/?g=";
+		    var end_url = "";
+		    var url = base_url + email + end_url;
+		    img.src = url;
+
+		    comment_no = i + 1;
+
+		});
+
+		$('.counter').html(comment_no);
+	});
+	function hideAway() {
+		document.getElementById('throw-error').style.display="none";
+	}
+  function validatePooleForm(form) {
+  	var name=form.name.value;
+  	var comment=form.comment.value;
+  	if (name != '' && comment != '') {
+  		workHard(form);
+  		return true;
+  	}
+  	else {
+  		document.getElementById('throw-error').style.display= "block";
+  		$('html, body').animate({ scrollTop: $('#throw-error').offset().top }, 'slow');
+  		return false;
+  	}
+  }
+  function honeyPot(form) {
+    form.path.value = "/math/prime-gap/";
+    var email=form.email.value;
+    var honey_handle = form.honey.value;
+    if (honey_handle == null || honey_handle == '') {
+    	if (validatePooleForm(form)) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    }
+    else {
+    	alert('Caught ye sucker!');
+    	return false;
+    }
+
+  }
+  function focusOnMe(id) {
+  	document.getElementById("laform").name.focus();
+  	document.getElementById("laform").inreplyto.value = id;
+  	document.getElementById("reply").style.display = "inline";
+  }
+  function unfocusOnMe(id) {
+  	document.getElementById("laform").inreplyto.value = "";
+  	document.getElementById("reply").style.display = "none";
+  }
+</script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/pure/0.6.0/pure-min.css">
+<style type="text/css">
+	#hide {
+		display: none;
+	}
+	#reply {
+		display: none;
+		float: right;
+		color: #dd0000;
+		font-size: 0.5em;
+		font-family: sans-serif;
+	}
+	#throw-error {
+		display: none;
+		background: #FF8282;
+		border-style: solid;
+		border-width: 1px;
+		border-color: #FCB8B8;
+		padding:20px;
+		border-radius: 3px;
+		font-family: sans-serif;
+		font-weight: normal;
+		font-size: 1em;
+	}
+	.bold-style {
+		border-radius: 0 !important;
+		border-width: 1px !important;
+		padding: 20px !important;
+		border-color: #ddd !important;
+		background-color: #fafafa !important;
+		box-shadow: none !important;
+	}
+	.bold-style:focus {
+		border-color: #ddd !important;
+	}
+	.input-area {
+		height: 200px;
+	}
+	.poole label {
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-weight: 900;
+		font-size: 0.8em;
+	}
+
+	.button {
+		padding-top: 15px;
+		padding-bottom: 15px;
+		padding-left: 20px;
+		padding-right: 20px;
+		margin-top: 5px;
+		color: #fff;
+		background-color: #111;
+		border-radius: 3px;
+		box-shadow: none;
+		text-transform: uppercase;
+		font-weight: 900;
+	}
+	.poole legend {
+		font-weight: 900;
+		font-size: 2em;
+	}
+	.poole-comments li {
+		list-style-type: none;
+		display: block;
+		border-top-width: 1px;
+		border-top-style: solid;
+		border-top-color: #d5d5d5;
+		margin-top: 10px;
+		padding-top: 10px;
+		margin-bottom: 10px; 
+
+	}
+	.poole-comments div {
+		font-size: 1.1em;
+		padding: 10px;
+		margin-left: 10px;
+	}
+	.poole-comments p {
+		display: inline-block;
+		font-size: 0.54em;
+		color: #555;
+		font-family: sans-serif;
+		text-transform: uppercase;
+		font-weight: 700;
+		padding: 0;
+		margin-left: 10px;
+		margin-top: 0;
+	}
+	.poole-comments time {
+		display: inline-block;
+		font-size: 0.5em;
+		color: #666;
+		text-transform: uppercase;
+		font-family: sans-serif;
+	}
+	.gravatar {
+		display: inline-block;
+		vertical-align: top;
+		width: 40px;
+		height: auto;
+		border-radius: 3px;
+		border-style: solid;
+		border-width: 1px;
+		border-color: #444;
+	}
+	.poole-comments a {
+		display: inline-block;
+		margin-left: 15px;
+		font-size: 0.5em;
+		font-family: sans-serif;
+	}
+	.poole-comments a:hover {
+		text-decoration: underline;
+	}
+	.poole-comments > ul {
+		margin: 0;
+	}
+	.poole-comments {
+		margin-top: 40px;
+	}
+	.top-wrapper, .bottom-wrapper {
+		display: block;
+	}
+</style>
+
+<div id="throw-error" onclick="hideAway()">
+You must provide a name for your comment!        <i style="float:right;" class="fa fa-times"></i>
+</div>
+<form class="pure-form pure-form-stacked poole" action="https://whispering-everglades-91567.herokuapp.com/post_comment" method="post" name="pooleform" onsubmit="return honeyPot(this)" id="laform">		
+	<fieldset>
+		<legend>Leave a comment <a class="display: inline-block;" id="reply" onclick="unfocusOnMe()">Clear reply <i style="color:#111;" class="fa fa-times"></i></a></legend>
+
+			<input type="hidden" name="redirect_to" value="https://therocketeers.github.io/comment/">
+
+			<div class="pure-g">
+
+				<div class="pure-u-1-2">
+		  		<label>Name</label>
+		  		<input type="text" name="name" class="pure-u-22-24 bold-style" > 
+		  	</div>
+
+		  	<div class="pure-u-1-2">
+		  		<label>Email</label>
+		  		<input type="text" name="email" class="pure-u-1 bold-style" >
+		  	</div>
+
+		  	<div class="pure-u-1">
+		  		<label>Website</label>
+		  		<input type="text" name="website" class="pure-u-1 bold-style">
+		  	</div>
+
+		  	<div class="pure-u-1">
+		  		<label>Comment</label>
+		  		<textarea class="pure-input-1 bold-style input-area" name="comment"></textarea>
+		  	</div>
+
+	  		<input type="text" name="path" id="hide">
+	  		<input type="text" name="inreplyto" id="hide">
+	  		<input type="text" name="honey" id="hide">
+	  		<input type="text" name="email0" id="hide">
+	  		<input type="text" name="glibhash" id="hide">
+	  		<input type="text" name="glib" id="hide">
+
+
+	  		<input type="submit" value="Post Comment" class="pure-button button">
+
+	  	</div>
+  </fieldset>
+</form>
+
+
+
+<div class="poole-comments">
+<h3><span class="counter">0</span> Comments</h3>
+<ul>
+  
+</ul>
+</div>
+      
+
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+  </article>
+  <p id="back-top"><a href="#post"><i class="fa fa-angle-double-up no-print"></i></a></p>
+</div><!-- /#main -->
+
+
+<div class="footer-wrapper">
+  <footer role="contentinfo" class="entry-wrapper">
+    <span>&copy; 2016-2016 James Powell.<br/>Last update on Fri, 03 Jun 2016 19:12:52 +0200<br/>Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> and theme from <a href="http://themicronaut.github.io" rel="nofollow">Aleh &amp; the Micronaut</a>.<br> Logo credit goes to Freepik.<br> Thanks to <a href="https://netlify.com" rel="nofollow">Netlify</a> for hosting this site.</span>
+<div class="social-icons">
+	
+	
+	
+	
+	
+	<a href="https://instagram.com/" title="James Powell on Instagram" target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+	
+	<a href="https://github.com/TheRocketeers" title="James Powell on Github" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+	
+    
+	
+	
+	
+	
+  <a href="https://therocketeers.github.io/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
+</div><!-- /.social-icons -->
+<span><p class="footer-wrapper"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/images/licensebuttons-by-nc-sa.svg" /></a><br/>
+    Except where otherwise noted, content on this site is licensed under a<br/><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons International License</a></p></span>
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script type="text/javascript">
+  var BASE_URL = 'https://therocketeers.github.io';
+  var PAGE_URL = '/math/prime-gap/';
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://therocketeers.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="https://therocketeers.github.io/assets/js/scripts.min.js"></script>
+
+
+<!-- Scroll effect for invisible & lazy elements -->
+<script type="text/javascript">
+$(document).ready(function() {
+
+	/* Hide the 'back-top' element */
+	$("#back-top").hide();
+    
+    /* Every time the window is scrolled ... */
+    $(window).scroll( function() {
+        
+		/* Check the location of each 'invisible' element */
+        $('.invisible').each( function(i) {
+            
+            /*var bottom_of_object = $(this).offset().top + $(this).outerHeight();*/
+			var middle_of_object = $(this).offset().top + ($(this).outerHeight()  * 0.5);
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            
+            /* If the object is half visible in the window... */
+            if( bottom_of_window > middle_of_object ) { 
+				/* 1. load any lazy sources inside the object */
+				var $iframe=$(this).find('iframe');
+				if ($iframe.data('src')) { // only do it once per iframe
+					$iframe.prop('src', $iframe.data('src')).data('src', false);
+				}
+				var $img=$(this).find('img').each(function (index, element) { // do it for each nested image
+					if ($(this).data('src')) { // only do it once per image
+						$(this).prop('src', $(this).data('src')).data('src', false);
+					}
+				});
+				/* 2. fade-in the object */
+                $(this).animate({'opacity':'1'}, 500);
+            }
+            
+        });
+		
+		/* Show or hide the back-top element */
+		if ($(this).scrollTop() > 500) {
+			$('#back-top').fadeIn(100);
+		} else {
+			$('#back-top').fadeOut(100);
+		}		
+
+    });
+	
+	/* Scroll to top */
+	$(function () {
+		/* scroll body to 0px on click */
+		$('#back-top a').click(function () {
+			$('body,html').animate({
+				scrollTop: 0
+			}, 400);
+			return false;
+		});
+	});	
+    
+});
+</script>
+<!-- Toggle Comments -->
+<script type="text/javascript">
+$( "#comments" ).click(function() {
+  $( "#comments-wrap" ).slideToggle( "slow", function() {
+    // Animation complete.
+  });
+});
+</script>
+
+
+
+</body>
+</html>

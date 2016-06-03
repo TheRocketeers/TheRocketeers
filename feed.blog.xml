@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title> - Blog</title>
+		<description>Posts categorized as 'blog'</description>
+		<link>https://therocketeers.github.io</link>
+		<atom:link href="https://therocketeers.github.io/feed.blog.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Getting comfy with Jekyll</title>
+				
+					<description>&lt;p&gt;I don’t intend this to be a “how to” style post. If you’re unfamiliar with Jekyll and Git then you’d better leave this post alone. Try reading some of my &lt;a href=&quot;https://therocketeers.cr.rs/tags/&quot;&gt;other posts&lt;/a&gt; instead.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Sun, 10 Apr 2016 14:02:58 +0200</pubDate>
+				<link>https://therocketeers.github.io/blog/getting-comfy-with-jekyll/</link>
+				<guid isPermaLink="true">https://therocketeers.github.io/blog/getting-comfy-with-jekyll/</guid>
+			</item>
+		
+			<item>
+				<title>The Science Behind Saving Matt Damon</title>
+				
+					<description>&lt;p&gt;&lt;span class=&quot;dcap&quot;&gt;R&lt;/span&gt;idley Scott does it again. That’s literally the only thing I can think of right now after I’ve finished watching the movie, the Martian. I thought Alien was an amazing movie but the Martian is definitely better. I was suspicious that it was one of those dump, soulless CGI movies and didn’t bother to catch it at the theater. Bad decision. Scott is one of those rare directors who can take anything and make it into a one of a kind movie you’ll remember for ever. Oh yeah, five years from now I’ll remember the Martian alright, not Gravity. Just so I won’t forget anything let me write down the story.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Sat, 27 Feb 2016 22:44:37 +0100</pubDate>
+				<link>https://therocketeers.github.io/blog/science-behind-saving-matt-damon/</link>
+				<guid isPermaLink="true">https://therocketeers.github.io/blog/science-behind-saving-matt-damon/</guid>
+			</item>
+		
+			<item>
+				<title>Those Wordpress Days</title>
+				
+					<description>&lt;p&gt;&lt;span class=&quot;dcap&quot;&gt;T&lt;/span&gt;his blog is hosted on Github using Jekyll. I’ve blogged before using Wordpress and Ghost but never have I experienced such freedom as Jekyll offers. A long, long time ago I started a Wordpress blog at &lt;a href=&quot;https://000webhost.com&quot;&gt;000webhost&lt;/a&gt;. I was just a script kiddie then – a n00b – and was innocent and dumb to the dishonesty of the web. Like most users I was drawn in by these tempting words.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Tue, 23 Feb 2016 11:30:24 +0100</pubDate>
+				<link>https://therocketeers.github.io/blog/blogging-using-jekyll/</link>
+				<guid isPermaLink="true">https://therocketeers.github.io/blog/blogging-using-jekyll/</guid>
+			</item>
+		
+	</channel>
+</rss>
